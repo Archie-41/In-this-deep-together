@@ -483,7 +483,6 @@ def plot_images(data_list, title_list=None, soliton_positions=None, **plot_param
 
     '''
     
-    
     if 'plot_profile' in plot_params:
         plot_profile = plot_params['plot_profile']
     else:

@@ -22,9 +22,9 @@ SolDet
 ```
 
 ## Installation
-(1) (Recommended) Create an Anaconda environment with python 3.7, then activate it
+(1) (Recommended) Create an Anaconda environment with python 3.8, then activate it
 ```
-conda create -n SDenv python=3.7
+conda create -n SDenv python=3.8
 conda activate SDenv
 ```
 

@@ -8,3 +8,5 @@ lmfit==1.0.1
 h5py==3.1.0
 pandas==1.0.5
 seaborn==0.10.1
+protobuf<4.0,>=3.9.2
+pyparsing<3.0,>=2.0.1

@@ -179,9 +179,70 @@ class SolitonDetector():
         Returns
         -------
         Figure.
-
         '''
-        pass
+        import matplotlib.pyplot as plt
+        import numpy as np
+        # Select data
+        data = self.data[data_key]['data']
+        labels = self.data[data_key]['labels'] if 'labels' in self.data[data_key] else None
+        positions = self.data[data_key]['positions'] if 'positions' in self.data[data_key] else None
+        types = self.data[data_key]['types'] if 'types' in self.data[data_key] else None
+
+        # Set random seed
+        if seed is not None:
+            np.random.seed(seed)
+
+        # Sample indices
+        if sample == 'class' and labels is not None:
+            unique_labels = np.unique(labels)
+            idx = []
+            per_class = max(1, n // len(unique_labels))
+            for ul in unique_labels:
+                class_idx = np.where(np.array(labels) == ul)[0]
+                if len(class_idx) > 0:
+                    idx.extend(np.random.choice(class_idx, min(per_class, len(class_idx)), replace=False))
+            idx = np.array(idx)
+            if len(idx) > n:
+                idx = idx[:n]
+        else:
+            idx = np.random.choice(len(data), n, replace=False)
+
+        # Prepare samples
+        sample_data = [data[i] for i in idx]
+        sample_labels = [labels[i] for i in idx] if labels is not None else None
+        sample_positions = [positions[i] for i in idx] if positions is not None else None
+        sample_types = [types[i] for i in idx] if types is not None else None
+
+        print(f"preview_data: data_key={data_key}, n={n}, sample={sample}, seed={seed}")
+        print(f"data length: {len(data)}")
+        if labels is not None:
+            print(f"labels length: {len(labels)}, unique labels: {np.unique(labels)}")
+        if positions is not None:
+            print(f"positions length: {len(positions)}")
+        if types is not None:
+            print(f"types length: {len(types)}")
+
+        # After selecting indices
+        print(f"Selected indices: {idx}")
+
+        # After preparing samples
+        print(f"sample_data length: {len(sample_data)}")
+        if sample_labels is not None:
+            print(f"sample_labels: {sample_labels}")
+        if sample_positions is not None:
+            print(f"sample_positions: {sample_positions}")
+        if sample_types is not None:
+            print(f"sample_types: {sample_types}")
+        print("Calling plot_images...")
+
+        # Plot images using soldet.plot_images
+        fig = plot_images(sample_data, labels=sample_labels, positions=sample_positions, types=sample_types, **plot_params)
+
+                # After plot_images
+        print(f"plot_images returned: {fig}")
+
+        plt.show()
+        return fig
     
     def train_ML(self, model_key='object_detector', data_key='train', save=False):
         '''
