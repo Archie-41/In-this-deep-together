@@ -7,4 +7,5 @@ We replicate the work of the following related papers: https://arxiv.org/pdf/220
 # Dataset
 In the folder SolDet you will find the code for the papers mentioned above.
 The full dataset can be found here: https://data.nist.gov/od/id/mds2-2363.
-Follow README.md to setup your environment.
+
+Follow SolDet/README.md to setup your python environment.
