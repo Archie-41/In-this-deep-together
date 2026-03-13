@@ -31,7 +31,7 @@ Physics Quality Metric
 ↓
 Validated Solitons
 ↓
-(Optional) Multi-frame Tracking
+Multi-frame Tracking
 
 ---
 
