@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python -m py_compile \"Improve/Simulate new data/rb87_gpe_soliton_tof\\.py\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
