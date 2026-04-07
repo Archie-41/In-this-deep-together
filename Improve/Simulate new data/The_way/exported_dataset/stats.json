@@ -1,0 +1,10 @@
+{
+  "num_exported": 21512,
+  "skipped_bad_shape": 0,
+  "skipped_bad_load": 0,
+  "cond_dim": 6,
+  "export_resolution": [
+    164,
+    132
+  ]
+}

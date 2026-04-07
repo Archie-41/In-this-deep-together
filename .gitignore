@@ -5,3 +5,4 @@ Improve/Simulate new data/stylegan3_conditional
 Improve/Simulate new data/simple_gan_workspace/generated_simple_gan/
 *.png
 *.pt
+*.npy
